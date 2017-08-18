@@ -1,0 +1,8 @@
+{
+	"username": "UserName goes here",
+	"password": "password goes here",
+	"sharedSecret": "Shared Secret Goes Here",
+	"IdentitySecret": "Identity Secret Goes Here",
+	"OwnerID": "ID64 of main steam account here"
+	"SteamGroup": "Group link"
+}
