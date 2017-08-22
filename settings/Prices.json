@@ -5,9 +5,9 @@
 	"sell": "30"
 	},
 
-	"Dual Berettas | Contractor":
+	"Market name of an Item":
 	{
-	"buy":  "1",
-	"sell": "3"
+	"buy":  "buy Price in scrap",
+	"sell": "Sell Price in Scrap"
 	}
 }
