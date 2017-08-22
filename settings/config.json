@@ -3,8 +3,8 @@
 	"password": "password goes here",
 	"sharedSecret": "Shared Secret Goes Here",
 	"IdentitySecret": "Identity Secret Goes Here",
-	"OwnerID": "ID64 of main steam account here"
-	"SteamGroup": "Group link"
+	"OwnerID": "ID64 of main steam account here",
+	"SteamGroup": "Group link",
 	
-	"Creator": "i was Created by Lonster_Monster, his profile is http://steamcommunity.com/id/Lonster_Monster.",
+	"Creator": "i was Created by Lonster_Monster, his profile is http://steamcommunity.com/id/Lonster_Monster."
 }
