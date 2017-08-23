@@ -158,6 +158,16 @@ function processOffer(offer) {
 		declineOffer(offer);
 	}
 }
+	if (ourValue <= theirValue) {
+		acceptOffer(offer);
+    if (ourValue <= theirValue) {
+    manager.on('receivedOfferChanged', (offer) => {
+    community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]))});  
+    
+}} else {
+		declineOffer(offer);
+	}
+}   
 
 client.setOption("promptSteamGuardCode", false);
 
