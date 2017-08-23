@@ -1,6 +1,4 @@
 {
-    "Game1": "Expiramental Bot",
-    "Game2": 440
-    
-    
+    "Game1": "Craft Hat Bot", // Name of game can be anything
+    "Game2": 440  // is the game id number 440 = tf2
 }

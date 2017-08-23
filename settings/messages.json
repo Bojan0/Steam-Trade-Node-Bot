@@ -1,25 +1,22 @@
-{
-	"WELCOME": "Hi i am the MarketWH Craft hat Bot #1.",
+	{
+	"WELCOME": "Hi i am a bot",
 	"WELCOME2": "Please type !HELP to get Started",
-	"messagehi": "hello, I am the MarketWh Craft Hat bot.",
-	"messagehelp": "Current Commands are !Help, !Group, !+Item Name",
-	"messagebilly": "The Current Buy price = 1 Ref and Sell = 1.33 Ref.",
-	"messageTsar": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
-	"messageTartan": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
-	"messageBeep": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
-	"messageVirtual": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
-	"messageSaint": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
-	"messagemomma": "The Current Buy price = 1 Ref and the Sell price = 7 Ref.",
-	"messagebrimstone": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
-	"messagerobin": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
-	"messageCountry": "The Current Buy price = 1 Ref and the Sell Price = 1.33 Ref.",
-	"messageblood": "The Current Buy Price is 1 Ref and the Sell Price is is 14.55 Ref.",
-	"messageclank": "The Current Buy Price is 1 Ref and the Sell Price is 1.22 Ref.",
-	"messageLuchadore" : "The Current Buy Price is 1 Ref and the Sell Price is 1.22 Ref.",
-	
-	
-	"messageGroup" : "The Current Group for This bot is http://steamcommunity.com/groups/MarketWH/."
-	
-	
-	
+	"hi": "hello, I am the MarketWh bot.",
+	"help": "Current Commands are !Help, !Group, !+Item Name",
+	"billy": "The Current Buy price = 1 Ref and Sell = 1.33 Ref.",
+	"Tsar": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
+	"Tartan": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
+	"Beep": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
+	"Virtual": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
+	"Saint": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
+	"momma": "The Current Buy price = 1 Ref and the Sell price = 7 Ref.",
+	"brimstone": "The Current Buy price = 1 Ref and the Sell price = 1.33 Ref.",
+	"robin": "The Current Buy price = 1 Ref and the Sell price = 1.22 Ref.",
+	"Country": "The Current Buy price = 1 Ref and the Sell Price = 1.33 Ref.",
+	"blood": "The Current Buy Price is 1 Ref and the Sell Price is is 14.55 Ref.",
+	"uclanka": "The Current Buy Price is 1 Ref and the Sell Price is 1.22 Ref.",
+	"Luchadore" : "The Current Buy Price is 1 Ref and the Sell Price is 1.22 Ref.",
+
+	"Creator": "My Creator is Lonster_Monster, his profile is http://steamcommunity.com/id/Lonster_Monster.",
+	"Group" : "The Current Group for This bot is http://steamcommunity.com/groups/MarketWH/."
 	}

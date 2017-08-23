@@ -1,10 +1,8 @@
 {
-	"username": "UserName goes here",
-	"password": "password goes here",
+	"username": "Bot Username Goes Here",
+	"password": "Bot Password Goe Here",
 	"sharedSecret": "Shared Secret Goes Here",
 	"IdentitySecret": "Identity Secret Goes Here",
-	"OwnerID": "ID64 of main steam account here",
-	"SteamGroup": "Group link",
-	
-	"Creator": "i was Created by Lonster_Monster, his profile is http://steamcommunity.com/id/Lonster_Monster."
+	"OwnerID": "Main id 64 Goes Here",
+	"Name": "name of steam group"//not id name only Currently not in use
 }

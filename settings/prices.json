@@ -1,0 +1,98 @@
+{	//Beggining of Value/Variable Set
+    // "Name of Item":
+    //  { 
+    //  "buy": 1,
+    //  "sell":1
+    //  }
+    // NOTE: This set of variables can hold up to 30 values/variables
+	// to make a new set start a set with { and end a set with }, and 
+	// do another set like seen above
+    
+	"Scrap Metal":
+	{
+	"buy": 1,
+	"sell":1
+	},
+	"Reclaimed Metal":
+	{
+	"buy": 3,
+	"sell":3
+	},
+	"Refined Metal":
+	{
+	"buy": 9,
+	"sell":9
+	},
+	"Mann Co. Supply Crate Key":
+	{
+	"buy": 250,
+	"sell":259
+	},
+	"Backbiter's Billycock":
+	{
+	"buy":9,
+	"sell":12
+	},
+	"Large Luchadore":
+	{
+	"buy":9,
+	"sell":11
+	},
+	"Big Country":
+	{
+	"buy":9,
+	"sell":12
+	},
+	"The Virtual Reality Headset":
+	{
+	"buy":9,
+	"sell":12
+	},
+	"Bullet Buzz":
+	{
+	"buy":9,
+	"sell":11
+	},
+	"The Tartan Spartan":
+	{
+	"buy":9,
+	"sell":12
+	},
+	"Larrikin Robin":
+	{
+	"buy":9,
+	"sell":11
+	},
+	"Strange Genuine Foppish Physician":
+	{
+	"buy":9,
+	"sell":108
+	},
+	"Genuine Hero's Hachimaki":
+	{
+	"buy":63,
+	"sell":144
+	},
+	"Genuine Killer Exclusive":
+	{
+	"buy":45,
+	"sell":180
+	},
+	"The Mark of the Saint":
+	{
+	"buy":9,
+	"sell":12
+	},
+	"The U-clank-a":
+	{
+	"buy":9,
+	"sell":11
+	},	
+	"Tam O' Shanter":
+	{
+	"buy":9,
+	"sell":12
+	}
+}	
+	
+	
