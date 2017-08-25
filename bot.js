@@ -1,5 +1,5 @@
 var Raven = require('raven');
-Raven.config('https://08ed538b80f144fea8a900db6561b40a:9dfbb4dabed4407d8d896e07c1508678@sentry.io/205434').install();
+Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/205434').install();
 Raven.context(function () {
 
 const SteamUser = require('steam-user');
