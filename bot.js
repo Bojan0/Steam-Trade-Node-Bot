@@ -98,9 +98,14 @@ client.on('webSession', (sessionid, cookies) => {
 	community.startConfirmationChecker(20000, config.identitySecret);
 });
 
-	manager.on('receivedOfferChanged', (offer) => {
-    community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));           
-});
+
+manager.on('receivedOfferChanged', (offer)=>{
+if(offer.state === 3){
+community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
+if(err) throw err.message
+console.log("Commented on " + offer.partner.toString() + "'s profile")})
+}
+})
 
 
 
@@ -157,20 +162,13 @@ function processOffer(offer) {
 	} else {
 		declineOffer(offer);
 	}
-}
-	if (ourValue <= theirValue) {
-		acceptOffer(offer);
-    if (ourValue <= theirValue) {
-    manager.on('receivedOfferChanged', (offer) => {
-    community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]))});  
-    
-}} else {
-		declineOffer(offer);
-	}
-}   
+};
 
 client.setOption("promptSteamGuardCode", false);
 
 manager.on('newOffer', (offer) => {
      processOffer(offer);
 });
+
+
+
