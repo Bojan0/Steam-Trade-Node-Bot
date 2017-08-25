@@ -11,17 +11,36 @@
     d. npm install steam-totp
     e. npm install steam-totp
     f. npm install steam-tradeoffer-manager
+    e. npm install raven
+    g. npm install mathjs
 
 
 4. go to the setting folder
 
 5. go to config.json and put your username, password, sharedsecret, identitysecret, ownerID
 
+Username = Bot Username
+Password = Bot Password
+Sharedsecret = Shared Secret from desktop authenticator
+Identity Secret = Identity Secret from Desktop Authenticator
+OwnerID = Bot owner ID64
+
+
 6. go to GamesPlayed.json and make sure the games are set correctly
+
+Games1 = Listed Game
+Games2 = Game ID
+
 
 7. go to messages.json and make sure everything is done correctly 
 
 8. go to prices check to make sure the items you want to buy and  sell is in it 
+
+{
+"Steam Market Name of item"
+"buy": Price,
+"sell: Price
+}
 
 9. Make a new text file
 

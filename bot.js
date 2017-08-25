@@ -1,3 +1,7 @@
+var Raven = require('raven');
+Raven.config('https://08ed538b80f144fea8a900db6561b40a:9dfbb4dabed4407d8d896e07c1508678@sentry.io/205434').install();
+Raven.context(function () {
+
 const SteamUser = require('steam-user');
 const SteamTotp = require('steam-totp');
 const SteamCommunity = require('steamcommunity');
@@ -170,5 +174,5 @@ manager.on('newOffer', (offer) => {
      processOffer(offer);
 });
 
-
+});
 
