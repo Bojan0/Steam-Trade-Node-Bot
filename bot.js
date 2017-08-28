@@ -103,11 +103,12 @@ client.on('webSession', (sessionid, cookies) => {
 });
 
 
-manager.on('receivedOfferChanged', (offer)=>{
-if(offer.state === 3){
-community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
-if(err) throw err.message
-console.log("Commented on " + offer.partner.toString() + "'s profile")})
+if (config.Comments == 'True') {
+manager.on('receivedOfferChanged', (offer) => {
+community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));
+});
+} else {
+console.log ("Cannot comment on user profiles becasue config.Comments is set to false.");
 }
 })
 
