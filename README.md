@@ -62,10 +62,11 @@ This Code reports anonymous usage statistics from sentry.io. Currently, this dat
 
 #Opting Out
 
-You may opt-out in one of two ways:
+You may opt-out by:
 
-    Application authors: set global._mckay_statistics_opt_out to true
-    End-users: set the NODE_MCKAY_STATISTICS_OPT_OUT environment variable to 1
+    Just Replace Enable with Disable on config IssueTracker
+    a warning will appear on console but it is fine i just have it there so you know that it is disabled
+    
 
 
 
