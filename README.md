@@ -1,4 +1,4 @@
-# Steam-Node-Bot 1.1
+# Steam-Node-Bot 1.2
 
 1. Unpack the files to your Desktop or where ever you want it
 
@@ -51,3 +51,21 @@ it will look like this
 
 node bot.js
 pause
+
+
+#Anonymous Usage Statistics Reporter
+
+This Code reports anonymous usage statistics from sentry.io. Currently, this data is reported:
+
+    Issues to help on problems in the future
+
+
+#Opting Out
+
+You may opt-out in one of two ways:
+
+    Application authors: set global._mckay_statistics_opt_out to true
+    End-users: set the NODE_MCKAY_STATISTICS_OPT_OUT environment variable to 1
+
+
+
