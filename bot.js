@@ -1,6 +1,5 @@
 var Raven = require('raven');
-Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/205434').install();
-Raven.context(function () {
+Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/207208').install();
 
 const SteamUser = require('steam-user');
 const SteamTotp = require('steam-totp');
