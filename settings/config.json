@@ -4,5 +4,6 @@
 	"sharedSecret": "Shared Secret Goes Here",
 	"IdentitySecret": "Identity Secret Goes Here",
 	"OwnerID": "Main id 64 Goes Here",
-	"Comments": "True"
+	"Comments": "True",
+	"IssueTracking": "Disable"
 }
