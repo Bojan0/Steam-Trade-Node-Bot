@@ -1,9 +1,12 @@
 {
-	"username": "Bot Username Goes Here",
-	"password": "Bot Password Goe Here",
-	"sharedSecret": "Shared Secret Goes Here",
-	"IdentitySecret": "Identity Secret Goes Here",
-	"OwnerID": "Main id 64 Goes Here",
-	"Comments": "True",
-	"IssueTracking": "Disable"
+	"username": "lonniegibson",
+	"password": "Zoopoo4u2--",
+	"sharedSecret": "9IkK3Ltn9M1OVo+nMPoBVWDkNs0=",
+	"IdentitySecret": "tDicwWUDyYOmkSE5DHQQinckkmM=",
+	"OwnerID": "76561198076819824",
+	"GroupLink": "steamcommunity.com/groups/MarketWH",
+    "Comments": "Enable",
+    "IssueTracking": "Enable",
+    "GroupID": "29657931"
+    
 }

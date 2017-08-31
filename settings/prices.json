@@ -4,9 +4,7 @@
     //  "buy": 1,
     //  "sell":1
     //  }
-    // NOTE: This set of variables can hold up to 30 values/variables
-	// to make a new set start a set with { and end a set with }, and 
-	// do another set like seen above
+	
     
 	"Scrap Metal":
 	{
