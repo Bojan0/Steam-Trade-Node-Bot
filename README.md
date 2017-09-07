@@ -25,8 +25,9 @@ Sharedsecret = Shared Secret from desktop authenticator
 Identity Secret = Identity Secret from Desktop Authenticator
 OwnerID = Bot owner ID64
 "GroupLink": "Your Group Link HEre",
-"Comments": "Enable",
-"IssueTracking": "Enable",
+"Comments": "Enable", Enables and Disables Comments on user Profiles
+"IssueTracking": "Enable", Enable/Disables Issue Tracking 
+NOTE if Disabled might be hard to help if you encounter a problem with the code
 "GroupID": "GroupId here",
 "Hatbanking": "Enable", Enables/disable Hat Banking 
 "KeyBanking": "Disable",Enables/disables Key banking
@@ -85,3 +86,5 @@ node bot.js
 pause
 
 18. Run the Run Bot.bat to run the bot
+
+HAVE ANY PROBLEMS POST YOUR PROBLEM HERE ON THE GITHUB REPO OR USE OUR STEAM GROUP steamcommunity.com/groups/MarketWH
