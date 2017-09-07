@@ -1,0 +1,217 @@
+{
+    "Scrap Metal":
+	{
+	"buy": 1,
+    "sell": 1
+	},
+	"Reclaimed Metal":
+	{
+	"buy": 3,
+    "buy": 3
+	},
+	"Refined Metal":
+	{
+	"buy": 9,
+    "sell": 9
+	},
+	"Tour of Duty Ticket":
+	{
+	"buy": 99,
+    "sell": 90
+	},
+    "Mann Co. Supply Crate Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Robo Community Crate Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Summer Appetizer Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Red Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Orange Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Yellow Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Green Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Aqua Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Blue Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Brown Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Black Summer 2013 Cooler Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Fall 2013 Acorns Crate Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Fall 2013 Gourd Crate Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Mann Co. Strongbox Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Mann Co. Stockpile Crate Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"End of the Line Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Gun Mettle Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Gun Mettle Cosmetic Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Invasion Community Update Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Gargoyle Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Tough Break Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Tough Break Cosmetic Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Mayflower Cosmetic Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Creepy Crawly Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+	"Rainy Day Cosmetic Key":
+    {
+    "buy": 261,
+    "sell":264
+    },
+    "The Virtual Reality Headset":
+    {
+	"buy": 9,
+    "sell": 12
+	},
+    "The Tartan Spartan":
+	{
+	"buy": 9,
+    "sell": 11
+	},
+    "The U-clank-a":
+	{
+	"buy": 9,
+    "sell": 11
+	},
+    "Big Country":
+	{
+	"buy": 9,
+    "sell": 12
+	},
+    "The Mark of the Saint":
+ 	{
+	"buy": 9,
+    "sell": 12
+	},
+    "Larrikin Robin":
+ 	{
+	"buy": 9,
+    "sell": 11
+	},
+    "Large Luchadore":
+	{
+	"buy": 9,
+    "sell": 11
+	},
+    "Tam O' Shanter":
+ 	{
+	"buy": 9,
+    "sell": 11
+	},
+    "Backbiter's Billycock":
+    {
+    "buy": 9,
+    "sell": 12
+    },
+	"Frenchman's Beret":
+    {
+    "buy": 9,
+    "sell": 12
+    },
+	"The Coffin Kit":
+	{
+    "buy": 9,
+    "sell": 12
+    },
+	"Bonedolier":
+	{
+    "buy": 9,
+    "sell": 11
+    },
+	"The Big Steel Jaw of Summer Fun":
+	{
+    "buy": 9,
+    "sell": 12
+    },
+	"Texas Slim's Dome Shine":
+	{
+    "buy": 9,
+    "sell": 12
+    }
+}
