@@ -1,4 +1,4 @@
-# Steam-Node-Bot 1.1
+# Steam-Node-Bot v1.5
 
 1. Unpack the files to your Desktop or where ever you want it
 
