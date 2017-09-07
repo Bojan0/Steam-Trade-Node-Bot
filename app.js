@@ -3,8 +3,6 @@ const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
 const Steam = require('steam');
-var SteamID = require('steamid');
-var fs = require('fs')
 
 const TeamFortress2 = require('tf2');
 
@@ -16,19 +14,15 @@ const Name = require('.//settings/config.json');
 const Games = require('.//settings/Games.json');
 const config = require('.//settings/config.json');
 const messages = require('.//settings/Messages/messages.json');
-const Prices = require('.//settings/Prices/Prices.json');
+const Prices1 = require('.//settings/Prices/Prices.json');
+const Prices2 = require('.//settings/Prices/Prices.json');
 const Comments = require('.//settings/Comments/comments.json');
-const HatsBanking = require('.//settings/Messages/Hatsmessage.json')
-const KeysBanking = require('.//settings/Messages/Keysmessage.json')
+const HatsBanking = require('.//settings/Messages/Hatsmessage.json');
+const KeysBanking = require('.//settings/Messages/Keysmessage.json');
 const AdminPrices = require('.//settings/Prices/AdminPrices.json');
-
-
-if (config.IssueTracking == "True" || "true" || "Enable" || "enable"){
-var Raven = require('raven');
-Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/207208').install();
-} else {
-    console.log ("\x1b[33m WARNING\x1b[37m: IssueTracking Disabled please enable issue tracking to get help faster when you are having problems.")
-}
+const stock = require('.//settings/Stock/stock.json');
+const instock = require('.//settings/Stock/stock.json');
+const stocklimit = require('.//settings/Stock/stock.json');
 
 const client = new SteamUser();
 const community = new SteamCommunity();
@@ -71,7 +65,6 @@ client.on('webSession', (sessionid, cookies) => {
 });
 
 
-
 if (config.Hatbanking == "Enable"){
     console.log('Craft Hat Banking Enabled')
 } else {
@@ -82,16 +75,6 @@ if (config.KeyBanking == "Enable"){
 } else {
     console.log('\x1b[33m WARNING\x1b[37m: Key Banking is not Enabled')
 }
-    
-user.getInventoryContents(440, 2, tradableOnly, callback)
-
-fs.appendFile(config.stock, 'new data', function (err) {
-  if (err) {
-    // append failed
-  } else {
-    // done
-  }
-})
 
 messages
 client.on("friendMessage", function(steamID, message) {
@@ -134,8 +117,8 @@ if (config.Hatbanking == "Enable"){
    	    }
 } else{
 	client.chatMessage(steamID, "I am sorry i am currently not programmed to Buy or sell Craft Hats");
-    } 
-    
+    }
+
  if (config.KeyBanking == "True" || "true" || "Enable" || "enable"){
         if (message == "!Mann Co. Supply Crate Key") {
 		client.chatMessage(steamID, KeysBanking.Crate);
@@ -212,7 +195,7 @@ if (config.Hatbanking == "Enable"){
 	if (message == "!Rainy Day Cosmetic Key"){
         client.chatMessage(steamID, KeysBanking.Rainy);
    	    }
-    
+
 } else {
         client.chatMessage(steamID, "I am sorry i am currently not able to Buy or sell Keys");
 };
@@ -226,7 +209,7 @@ function acceptOffer(offer) {
 		console.log("We Accepted an offer");
 		if (err) console.log("There was an error accepting the offer.");
 	});
-    
+
 }
 
 function declineOffer(offer) {
@@ -243,7 +226,6 @@ function processOffer(offer) {
 		declineOffer(offer);
 	} else if (offer.partner.getSteamID64() === config.ownerID) {
 		acceptOffer(offer);
-        getSteamUser.SteamID.postUserComment("+Rep")
 	} else {
 		var ourItems = offer.itemsToGive;
 		var theirItems = offer.itemsToReceive;
@@ -251,50 +233,33 @@ function processOffer(offer) {
 		var theirValue = 0;
 		for (var i in ourItems) {
 			var item = ourItems[i].market_name;
-			if(Prices[item]) {
-                if prices[item].stock == Prices[item].stocklimit)  {
- 				ourValue += Prices[item].sell;
-                } else{
-                console.log("Cannot buy because stock limit reached.");
-				ourValue += 99999;
-                }
-			} else {
+			if (instock[item].instock != stocklimit[item].stocklimit) {
+			if(Prices1[item]) {
+ 				ourValue += Prices1[item].sell;
+			}} else {
 				console.log("Invalid Value.");
 				ourValue += 99999;
 			}
-		}
 		for(var i in theirItems) {
 			var item= theirItems[i].market_name;
-			if(Prices[item]) {
-                if prices[item].stock == Prices[item].stocklimit) {
-        console.log("Cannot buy because stock limit reached.");
-            }
-            theirValue += Prices[item].buy;
-            } else {
+			if (instock[item].instock != stocklimit[item].stocklimit) {
+			if(Prices2[item]) {
+				theirValue += Prices2[item].buy;
+			} else {
 			console.log("Their value was different.")
 			}
-		} 
-	}
 	console.log("Our value: "+ourValue);
 	console.log("Their value: "+theirValue);
-
+}
 	if (ourValue <= theirValue) {
 		acceptOffer(offer);
-	} else {
+} else {
 		declineOffer(offer);
-	}
-};
-
-function acceptOffer(offer) {
-	offer.accept((err) => {
-		community.checkConfirmations();
-		console.log("We Accepted an offer");
-		if(err)console.log("There was an error accepting the offer.");
-});
 	};
-
-
-
+};
+};
+};
+};
 
 if (config.Comments == "Enable") {
 manager.on('receivedOfferChanged', (offer)=>{
