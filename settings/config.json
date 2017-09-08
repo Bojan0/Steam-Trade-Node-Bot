@@ -7,5 +7,10 @@
 	"GroupLink": "Link to steam group here",
     	"Comments": "Enable",
     	"IssueTracking": "Enable",
+	"GroupID": "29657931",
+    	"Hatbanking": "Enable",
+    	"KeyBanking": "Disable",
+   	"Group" : "Market Warehouse",
+    	"chats": "true"
     
 }
