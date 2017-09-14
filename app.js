@@ -1,6 +1,9 @@
-const Raven = require('raven');
+if (config.IssueTracking == "Enable"){
+var Raven = require('raven');
 Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/207208').install();
-Raven.context(function () {
+} else {
+    console.log ("\x1b[33m WARNING\x1b[37m: IssueTracking Disabled please enable issue tracking to get help faster when you are having problems.")
+}
 	
 const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
@@ -282,4 +285,3 @@ client.setOption("promptSteamGuardCode", false);
 manager.on('newOffer', (offer) => {
      processOffer(offer);
     });
-});
