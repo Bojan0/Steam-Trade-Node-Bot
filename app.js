@@ -1,3 +1,7 @@
+const Raven = require('raven');
+Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/207208').install();
+Raven.context(function () {
+	
 const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
@@ -278,3 +282,4 @@ client.setOption("promptSteamGuardCode", false);
 manager.on('newOffer', (offer) => {
      processOffer(offer);
     });
+});
