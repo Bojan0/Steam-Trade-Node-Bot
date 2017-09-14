@@ -1,3 +1,4 @@
+const config = require('.//settings/config.json')
 if (config.IssueTracking == "Enable"){
 var Raven = require('raven');
 Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced933031c0@sentry.io/207208').install();
@@ -19,7 +20,6 @@ const tf2 = new TeamFortress2(user);
 const math = require('mathjs');
 const Name = require('.//settings/config.json');
 const Games = require('.//settings/Games.json');
-const config = require('.//settings/config.json');
 const messages = require('.//settings/Messages/messages.json');
 const Prices1 = require('.//settings/Prices/Prices.json');
 const Prices2 = require('.//settings/Prices/Prices.json');
