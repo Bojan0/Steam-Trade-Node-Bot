@@ -10,6 +10,7 @@
 	"GroupID": "29657931",
     	"Hatbanking": "Enable",
     	"KeyBanking": "Disable",
+	"Only have one" : "Enabled",
    	"Group" : "Market Warehouse",
     	"chats": "true"
     
