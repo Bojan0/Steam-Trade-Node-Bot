@@ -33,7 +33,7 @@ const Scraprices = require('.//settings/Prices/Scraprices.json')
 const path = stock;
 
 console.log("\x1b[8m SteamTrade Bot")
-console.log("\x1b[33m Current Version:\x1b[35m 1.5.0")
+console.log("\x1b[33m Current Version:\x1b[35m 2.0.0")
 console.log("\x1b[33mCreator:\x1b[35m http://Github.com/Lonster_Monster")
 console.log("\x1b[33mIssues with the Bot:\x1b[35m https://github.com/LonsterMonster/Steam-Trade-Node-Bot/issues")
 console.log("\x1b[33mIdeas for the Bot:\x1b[35m http://steamcommunity.com/groups/MarketWH/discussions/0/\x1b[0m")
