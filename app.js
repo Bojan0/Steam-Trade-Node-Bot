@@ -5,32 +5,40 @@ Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced9
 } else {
     console.log ("\x1b[33m WARNING\x1b[37m: IssueTracking Disabled please enable issue tracking to get help faster when you are having problems.")
 }
-	
+
 const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
 const Steam = require('steam');
-
-const TeamFortress2 = require('tf2');
-
-const user = new SteamUser();
-const tf2 = new TeamFortress2(user);
-
 const math = require('mathjs');
+const mysql = require('mysql');
+const fs = require('fs');
+
+const adminConfig = require('.//AdminOptions/Config.json')
+const CreatorConfig = require('.//CreatorProperties/Config.json');
 const Name = require('.//settings/config.json');
 const Games = require('.//settings/Games.json');
 const messages = require('.//settings/Messages/messages.json');
-const Prices1 = require('.//settings/Prices/Prices.json');
-const Prices2 = require('.//settings/Prices/Prices.json');
+const Prices = require('.//settings/Prices/Prices.json');
 const Comments = require('.//settings/Comments/comments.json');
 const HatsBanking = require('.//settings/Messages/Hatsmessage.json');
 const KeysBanking = require('.//settings/Messages/Keysmessage.json');
+const Robopartbanking = require('.//settings/Messages/Keysmessage.json');
 const AdminPrices = require('.//settings/Prices/AdminPrices.json');
 const stock = require('.//settings/Stock/stock.json');
-const instock = require('.//settings/Stock/stock.json');
-const stocklimit = require('.//settings/Stock/stock.json');
+const SteamID = TradeOfferManager.SteamID;
+const MetalPrices = require('.//settings/Prices/MEtalPrices.json')
+const Scraprices = require('.//settings/Prices/Scraprices.json')
+const path = stock;
 
+console.log("\x1b[8m SteamTrade Bot")
+console.log("\x1b[33m Current Version:\x1b[35m 1.5.0")
+console.log("\x1b[33mCreator:\x1b[35m http://Github.com/Lonster_Monster")
+console.log("\x1b[33mIssues with the Bot:\x1b[35m https://github.com/LonsterMonster/Steam-Trade-Node-Bot/issues")
+console.log("\x1b[33mIdeas for the Bot:\x1b[35m http://steamcommunity.com/groups/MarketWH/discussions/0/\x1b[0m")
+console.log(" ")
+console.log(" ")
 const client = new SteamUser();
 const community = new SteamCommunity();
 const manager = new TradeOfferManager ({
@@ -49,19 +57,20 @@ client.logOn(logOnOptions);
 
 client.on('loggedOn', () => {
     console.log('succesfully logged on.');
-    client.setPersona(SteamUser.Steam.EPersonaState.Online);
+    client.setPersona(SteamUser.Steam.EPersonaState.Online,config.SteamName);
     client.gamesPlayed([Games.Game1,Games.Game2]);
 });
 
 
 
 client.on('friendRelationship', (steamID, relationship) => {
+client.on('friendRelationship', (steamID, relationship) => {
     if (relationship === 2) {
         client.addFriend(steamID);
         client.chatMessage(steamID, messages.WELCOME);
 	    client.chatMessage(steamID, messages.WELCOME2);
     }
-});
+})});
 
 
 client.on('webSession', (sessionid, cookies) => {
@@ -70,6 +79,10 @@ client.on('webSession', (sessionid, cookies) => {
 	community.setCookies(cookies);
 	community.startConfirmationChecker(20000, config.identitySecret);
 });
+
+if (fs.readFileSync('.//settings/Stock/stock.json')){
+	console.log('File Read sync')
+}
 
 
 if (config.Hatbanking == "Enable"){
@@ -206,8 +219,33 @@ if (config.Hatbanking == "Enable"){
 } else {
         client.chatMessage(steamID, "I am sorry i am currently not able to Buy or sell Keys");
 };
+if (config.Robopartbanking == "True" || "true" || "Enable" || "enable"){
+			 if (message == "!Battle-Worn Robot Money Furnace") {
+	 client.chatMessage(steamID, KeysBanking.furnace);
+			 }
+			 if (message == "!Reinforced Robot Humor Suppression Pump") {
+	 client.chatMessage(steamID, KeysBanking.Humor);
+			 }
+			 if (message == "!Reinforced Robot Emotion Detector") {
+	 client.chatMessage(steamID, KeysBanking.Emotion);
+			 }
+			 if (message == "!Reinforced Robot Bomb Stabilizer") {
+	 client.chatMessage(steamID, KeysBanking.bomb);
+			 }
+			 if (message == "!Battle-Worn Robot Taunt Processor") {
+	 client.chatMessage(steamID, KeysBanking.Taunt);
+			 }
+			 if (message == "!Battle-Worn Robot KB-808") {
+	 client.chatMessage(steamID, KeysBanking.kb808);
+			 }
+			 if (message == "!Pristine Robot Currency Digester") {
+	 client.chatMessage(steamID, KeysBanking.currency);
+			 }
+			 if (message == "!Pristine Robot Brainstorm Bulb") {
+	 client.chatMessage(steamID, KeysBanking.Bulb);
+			 }
+		};
 });
-
 
 
 function acceptOffer(offer) {
@@ -240,48 +278,72 @@ function processOffer(offer) {
 		var theirValue = 0;
 		for (var i in ourItems) {
 			var item = ourItems[i].market_name;
-			if (instock[item].instock != stocklimit[item].stocklimit) {
-			if(Prices1[item]) {
- 				ourValue += Prices1[item].sell;
+			if (stock[item]){
+				if (stock[item].instock < stock[item].stocklimit){
+					if(Prices[item]) {
+					ourValue += Prices[item].sell;
+					} else if (MetalPrices[item]){
+					theirValue += MetalPrices[item].sell;
+					} else {
+					console.log("Invalid Value.");
+					ourValue += 99999;
+					}
 			}} else {
-				console.log("Invalid Value.");
-				ourValue += 99999;
+				console.log(item +" Stock Limit Reached")
 			}
+		}
 		for(var i in theirItems) {
 			var item= theirItems[i].market_name;
-			if (instock[item].instock != stocklimit[item].stocklimit) {
-			if(Prices2[item]) {
-				theirValue += Prices2[item].buy;
-			} else {
-			console.log("Their value was different.")
+			if (stock[item]){
+				if (stock[item].instock < stock[item].stocklimit){
+					if(Prices[item]) {
+					theirValue += Prices[item].buy;
+					} else if (MetalPrices[item]){
+					theirValue += MetalPrices[item].buy;
+					} else {
+					console.log("Invalid Value.");
+					ourValue += 99999;
+					}
+					
+			}} else {
+				console.log(item +" Stock Limit Reached")
 			}
-	console.log("Our value: "+ourValue);
-	console.log("Their value: "+theirValue);
-}
-	if (ourValue <= theirValue) {
+		console.log("Their value was different.")
+		}
+	} 
+	
+console.log("Our value: "+ourValue);
+console.log("Their value: "+theirValue);
+
+if (ourValue <= theirValue) {
 		acceptOffer(offer);
 } else {
 		declineOffer(offer);
-	};
-};
-};
-};
+}
 };
 
-if (config.Comments == "Enable") {
+
 manager.on('receivedOfferChanged', (offer)=>{
-if(offer.state === 3){
-community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
-if(err) throw err.message
-community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));
-});
-}
-})
-} else {
+	if(offer.state === 3){
+		if (config.Comments == "Enable") {
+			if (adminConfig.disableAdminComments == "Enable") {
+				if (offer.partner.toString() === CreatorConfig.CreatorID){
+				}
+			} else {
+					if (community.postUserComment(offer.partner.toString(), "Comment")) {
+						community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
+						if(err) throw err.message
+						community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));
+						});
+					}
+				};
+		}
+	} else {
 console.log('\x1b[33m WARNING\x1b[37m: Cannot comment on user profiles becasue config.Comments is set to false. ');
 }
+}) 
 client.setOption("promptSteamGuardCode", false);
 
 manager.on('newOffer', (offer) => {
      processOffer(offer);
-    });
+});
