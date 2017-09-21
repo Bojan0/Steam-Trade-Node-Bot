@@ -1,12 +1,18 @@
 {
+
+    "__Example__":
+  {
+    "instock": 0,
+    "stocklimit": 0
+  },
     "Scrap Metal":
 	{
-	"instock": 6,
+	"instock": 61,
   "stocklimit": 200
 	},
 	"Reclaimed Metal":
 	{
-	"instock": 1,
+	"instock": 4,
   "stocklimit": 200
 	},
 	"Refined Metal":
@@ -16,202 +22,173 @@
 	},
 	"Tour of Duty Ticket":
 	{
-	"instock": 99,
-  "stocklimit": 90
+    "instock": 0,
+    "stocklimit":200
 	},
     "Mann Co. Supply Crate Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Robo Community Crate Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Summer Appetizer Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Red Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Orange Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Yellow Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Green Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Aqua Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Blue Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Brown Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Black Summer 2013 Cooler Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Fall 2013 Acorns Crate Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Fall 2013 Gourd Crate Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Mann Co. Strongbox Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Mann Co. Stockpile Crate Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"End of the Line Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Gun Mettle Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Gun Mettle Cosmetic Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Invasion Community Update Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Gargoyle Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Tough Break Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Tough Break Cosmetic Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Mayflower Cosmetic Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Creepy Crawly Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
 	"Rainy Day Cosmetic Key":
     {
-    "instock": 261,
-    "stocklimit":264
+    "instock": 0,
+    "stocklimit":200
     },
-    "The Virtual Reality Headset":
-    {
-	"instock": 9,
-    "stocklimit": 12
-	},
-    "The Tartan Spartan":
+	"Reinforced Robot Humor Suppression Pump":
 	{
-	"instock": 9,
-    "stocklimit": 11
-	},
-    "The U-clank-a":
-	{
-	"instock": 9,
-    "stocklimit": 11
-	},
-    "Big Country":
-	{
-	"instock": 9,
-    "stocklimit": 12
-	},
-    "The Mark of the Saint":
- 	{
-	"instock": 9,
-    "stocklimit": 12
-	},
-    "Larrikin Robin":
- 	{
-	"instock": 9,
-    "stocklimit": 11
-	},
-    "Large Luchadore":
-	{
-	"instock": 9,
-  "stocklimit": 11
-	},
-    "Tam O' Shanter":
- 	{
-  "instock": 1,
-	"stocklimit":1
-	},
-    "Backbiter's Billycock":
-    {
-    "instock": 9,
-    "stocklimit": 12
+    "instock": 5,
+    "stocklimit":100
     },
-	"Frenchman's Beret ":
-    {
-    "instock": 9,
-    "stocklimit": 12
-    },
-	"The Coffin Kit":
+	"Reinforced Robot Emotion Detector":
 	{
-    "instock": 9,
-    "stocklimit": 12
+    "instock": 0,
+    "stocklimit":100
     },
-	"Bonedolier":
+	"Reinforced Robot Bomb Stabilizer":
 	{
-    "instock": 9,
-    "stocklimit": 11
+    "instock": 8,
+    "stocklimit":100
     },
-	"The Big Steel Jaw of Summer Fun":
+	"Battle-Worn Robot Taunt Processor":
 	{
-    "instock": 9,
-    "stocklimit": 12
+    "instock": 0,
+    "stocklimit":100
     },
-	"Texas Slim's Dome Shine":
+	"Battle-Worn Robot KB-808":
+	    {
+    "instock": 0,
+    "stocklimit":100
+    },
+	"Battle-Worn Robot Money Furnace":
 	{
-    "instock": 9,
-    "stocklimit": 12
+    "instock": 0,
+    "stocklimit":100
+    },
+
+	"Pristine Robot Brainstorm Bulb":
+	{
+    "instock": 0,
+    "stocklimit":100
+    },
+	"Pristine Robot Currency Digester":
+	{
+    "instock": 0,
+    "stocklimit":100
     }
 }
