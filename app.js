@@ -10,7 +10,9 @@ const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
+const Steam = require('steam');
 const math = require('mathjs');
+const mysql = require('mysql');
 const fs = require('fs');
 
 const adminConfig = require('.//AdminOptions/Config.json')
@@ -267,9 +269,10 @@ function processOffer(offer) {
 	if (offer.isGlitched() || offer.state === 11) {
 		console.log("Offer was glitched, declining.");
 		declineOffer(offer);
-	} else if (offer.partner.getSteamID64() === config.ownerID) {
+	} else if (config.GlitchedOfferAdminAccept === "True"){
+		if (offer.partner.getSteamID64() === config.ownerID) {
 		acceptOffer(offer);
-	} else {
+	}} else {
 		var ourItems = offer.itemsToGive;
 		var theirItems = offer.itemsToReceive;
 		var ourValue = 0;
@@ -280,15 +283,17 @@ function processOffer(offer) {
 				if (stock[item].instock < stock[item].stocklimit){
 					if(Prices[item]) {
 					ourValue += Prices[item].sell;
+          console.log("Thier Items:" +item)
 					} else if (MetalPrices[item]){
 					theirValue += MetalPrices[item].sell;
+          console.log("Thier Items:" +item)
 					} else {
 					console.log("Invalid Value.");
 					ourValue += 99999;
 					}
-			}} else {
-				console.log(item +" Stock Limit Reached")
-			}
+        }} else {
+  			console.log(item +" Stock Limit Reached")
+  			}
 		}
 		for(var i in theirItems) {
 			var item= theirItems[i].market_name;
@@ -296,20 +301,19 @@ function processOffer(offer) {
 				if (stock[item].instock < stock[item].stocklimit){
 					if(Prices[item]) {
 					theirValue += Prices[item].buy;
+          console.log("Our Items:" +item)
 					} else if (MetalPrices[item]){
 					theirValue += MetalPrices[item].buy;
+          console.log("Our Items:" +item)
 					} else {
-					console.log("Invalid Value.");
-					ourValue += 99999;
+					console.log("Their value was different.")
 					}
-					
+
 			}} else {
 				console.log(item +" Stock Limit Reached")
 			}
-		console.log("Their value was different.")
 		}
-	} 
-	
+
 console.log("Our value: "+ourValue);
 console.log("Their value: "+theirValue);
 
@@ -319,6 +323,7 @@ if (ourValue <= theirValue) {
 		declineOffer(offer);
 }
 };
+}
 
 
 manager.on('receivedOfferChanged', (offer)=>{
@@ -328,7 +333,7 @@ manager.on('receivedOfferChanged', (offer)=>{
 				if (offer.partner.toString() === CreatorConfig.CreatorID){
 				}
 			} else {
-					if (community.postUserComment(offer.partner.toString(), "Comment")) {
+					if (community.postUserComment(offer.partner.toString())) {
 						community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
 						if(err) throw err.message
 						community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));
@@ -339,7 +344,7 @@ manager.on('receivedOfferChanged', (offer)=>{
 	} else {
 console.log('\x1b[33m WARNING\x1b[37m: Cannot comment on user profiles becasue config.Comments is set to false. ');
 }
-}) 
+})
 client.setOption("promptSteamGuardCode", false);
 
 manager.on('newOffer', (offer) => {
