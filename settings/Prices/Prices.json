@@ -40,7 +40,37 @@
     "buy": 0.33,
     "sell":0.55
     },
-		"The Direct Hit":
+	"The Short Circuit":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Kritzkrieg":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Red-Tape Recorder":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Bootlegger":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Concheror":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Family Business":
+	{
+      "buy": 0.055,
+      "sell":0.055
+      },
+	"The Direct Hit":
   {
     "buy": 0.055,
     "sell":0.055
@@ -486,7 +516,7 @@
       "buy": 0.055,
       "sell":0.055
       },
-    "The Detonator":
+    "Detonator":
     {
       "buy": 0.055,
       "sell":0.055
@@ -876,7 +906,7 @@
       "buy": 0.055,
       "sell":0.055
       },
-    "The Jarate":
+    "Jarate":
     {
       "buy": 0.055,
       "sell":0.055
@@ -1456,7 +1486,7 @@
       "buy": 0.055,
       "sell":0.055
       },
-    "The Sharpened Volcano Fragment":
+    "Sharpened Volcano Fragment":
     {
       "buy": 0.055,
       "sell":0.055
