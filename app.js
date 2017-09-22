@@ -12,7 +12,6 @@ const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
 const Steam = require('steam');
 const math = require('mathjs');
-const mysql = require('mysql');
 const fs = require('fs');
 
 const adminConfig = require('.//AdminOptions/Config.json')
