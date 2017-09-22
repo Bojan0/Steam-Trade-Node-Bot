@@ -10,7 +10,6 @@ const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
-const Steam = require('steam');
 const math = require('mathjs');
 const fs = require('fs');
 
