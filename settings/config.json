@@ -1,17 +1,18 @@
-{
-	"username": "lonniegibson",
-	"password": "Zoopoo4u2--",
-	"sharedSecret": "9IkK3Ltn9M1OVo+nMPoBVWDkNs0=",
-	"IdentitySecret": "tDicwWUDyYOmkSE5DHQQinckkmM=",
-	"OwnerID": "76561198076819824",
-	"SteamName" : "[MarketWh_Bot] Robo Part Bot",
-	"GroupLink": "steamcommunity.com/groups/MarketWH",
+{	
+	"username": "Bot Username Goes Here",
+	"password": "Bot Password Goe Here",
+	"sharedSecret": "Shared Secret Goes Here",
+	"IdentitySecret": "Identity Secret Goes Here",
+	"OwnerID": "Main id 64 Goes Here",
+	"SteamName" : "Desired Steam Name Goes Here",
+	"GroupLink": "Link to steam group here",
     "Comments": "Enable",
-    "IssueTracking": "Disable",
-    "GroupID": "29657931",
-	"Robopartbanking": "Enable",
- 	"Hatbanking" : "True",
-	"KeyBanking": "True",
-    "Group" : "Market Warehouse",
-    "chats": "True"
+    "IssueTracking": "Enable",
+	"GroupID": "29657931",
+	"Robopartbanking": "Disable",
+    "Hatbanking": "Disable",
+    "KeyBanking": "Disable",
+   	"Group" : "Market Warehouse",
+    "chats": "true"
+    
 }
