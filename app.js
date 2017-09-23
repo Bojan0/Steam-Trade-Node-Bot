@@ -10,9 +10,7 @@ const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
-const Steam = require('steam');
 const math = require('mathjs');
-const mysql = require('mysql');
 const fs = require('fs');
 
 const adminConfig = require('.//AdminOptions/Config.json')
@@ -25,11 +23,9 @@ const Comments = require('.//settings/Comments/comments.json');
 const HatsBanking = require('.//settings/Messages/Hatsmessage.json');
 const KeysBanking = require('.//settings/Messages/Keysmessage.json');
 const Robopartbanking = require('.//settings/Messages/Keysmessage.json');
-const AdminPrices = require('.//settings/Prices/AdminPrices.json');
 const stock = require('.//settings/Stock/stock.json');
 const SteamID = TradeOfferManager.SteamID;
 const MetalPrices = require('.//settings/Prices/MEtalPrices.json')
-const Scraprices = require('.//settings/Prices/Scraprices.json')
 const path = stock;
 
 console.log("\x1b[8m SteamTrade Bot")
@@ -83,7 +79,6 @@ client.on('webSession', (sessionid, cookies) => {
 if (fs.readFileSync('.//settings/Stock/stock.json')){
 	console.log('File Read sync')
 }
-
 
 if (config.Hatbanking == "Enable"){
     console.log('Craft Hat Banking Enabled')
@@ -269,63 +264,93 @@ function processOffer(offer) {
 	if (offer.isGlitched() || offer.state === 11) {
 		console.log("Offer was glitched, declining.");
 		declineOffer(offer);
-	} else if (config.GlitchedOfferAdminAccept === "True"){
-		if (offer.partner.getSteamID64() === config.ownerID) {
+	} else if (offer.partner.getSteamID64() === config.ownerID) {
 		acceptOffer(offer);
-	}} else {
+	} else {
 		var ourItems = offer.itemsToGive;
 		var theirItems = offer.itemsToReceive;
 		var ourValue = 0;
 		var theirValue = 0;
+		var currentstock = 0;
+		var StockLimit = 0;
 		for (var i in ourItems) {
 			var item = ourItems[i].market_name;
 			if (stock[item]){
-				if (stock[item].instock < stock[item].stocklimit){
+				currentstock = stock[item].instock;
+				StockLimit = stock[item].stocklimit;
+				console.log("The " +item+ "stock number: " +currentstock+ " / " +StockLimit+ ".")
+				if (currentstock < StockLimit){
 					if(Prices[item]) {
 					ourValue += Prices[item].sell;
-          console.log("Thier Items:" +item)
+					if (fs.readFileSync('.//settings/Stock/stock.json')){
+						console.log('File Read sync')
+					}
 					} else if (MetalPrices[item]){
-					theirValue += MetalPrices[item].sell;
-          console.log("Thier Items:" +item)
+					ourValue += MetalPrices[item].sell;
+					if (fs.readFileSync('.//settings/Stock/stock.json')){
+						console.log('File Read sync')
+					}
 					} else {
 					console.log("Invalid Value.");
 					ourValue += 99999;
 					}
-        }} else {
-  			console.log(item +" Stock Limit Reached")
-  			}
-		}
+			} else if (currentstock >= StockLimit){
+				console.log(item +" Stock Limit Reached")
+					manager.on('receivedOfferChanged', (offer)=>{
+					if (adminConfig.disableAdminComments == "Enable") {
+							community.postUserComment(offer.partner.toString(), item+ " - Stock Limit Reached", (err)=>{
+								if(err) throw err.message
+							});
+						}
+						})
+						}
+					};
+					}					
 		for(var i in theirItems) {
 			var item= theirItems[i].market_name;
 			if (stock[item]){
-				if (stock[item].instock < stock[item].stocklimit){
+				currentstock = stock[item].instock;
+				StockLimit = stock[item].stocklimit;
+				console.log("The " +item+" - stock number: " +currentstock+ " / " +StockLimit+ ".")
+				if (currentstock < StockLimit){
 					if(Prices[item]) {
 					theirValue += Prices[item].buy;
-          console.log("Our Items:" +item)
+					if (fs.readFileSync('.//settings/Stock/stock.json')){
+						console.log('File Read sync')
+					}
 					} else if (MetalPrices[item]){
 					theirValue += MetalPrices[item].buy;
-          console.log("Our Items:" +item)
-					} else {
-					console.log("Their value was different.")
+					if (fs.readFileSync('.//settings/Stock/stock.json')){
+						console.log('File Read sync')
 					}
+					} else {
+					console.log("Invalid Value.");
+					theirValue += 99999;
+					}
+				} else if (currentstock >= StockLimit){
+						console.log(item +" Stock Limit Reached")
+						manager.on('receivedOfferChanged', (offer)=>{
+						community.postUserComment(offer.partner.toString(), item+ " Stock Limit Reached", (err)=>{
+							if(err) throw err.message
+							})
+						})
+					} 
+		
+				}
 
-			}} else {
-				console.log(item +" Stock Limit Reached")
-			}
-		}
-
+	
 console.log("Our value: "+ourValue);
 console.log("Their value: "+theirValue);
 
 if (ourValue <= theirValue) {
 		acceptOffer(offer);
-} else {
+} else if (ourValue > theirValue){
+	console.log("Their value was different.")
 		declineOffer(offer);
 }
 };
 }
-
-
+}
 manager.on('receivedOfferChanged', (offer)=>{
 	if(offer.state === 3){
 		if (config.Comments == "Enable") {
@@ -333,17 +358,16 @@ manager.on('receivedOfferChanged', (offer)=>{
 				if (offer.partner.toString() === CreatorConfig.CreatorID){
 				}
 			} else {
-					if (community.postUserComment(offer.partner.toString())) {
-						community.postUserComment(offer.partner.toString(), "Comment", (err)=>{
+				if (community.postUserComment(offer.partner.toString())) {
+					community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5])), (err)=>{
 						if(err) throw err.message
-						community.postUserComment(offer.partner.toString(), math.pickRandom([Comments.comments0, Comments.comments1, Comments.comments2, Comments.comments3, Comments.comments4, Comments.comments5]));
-						});
+						}
 					}
 				};
-		}
-	} else {
+		} else {
 console.log('\x1b[33m WARNING\x1b[37m: Cannot comment on user profiles becasue config.Comments is set to false. ');
 }
+	}
 })
 client.setOption("promptSteamGuardCode", false);
 
