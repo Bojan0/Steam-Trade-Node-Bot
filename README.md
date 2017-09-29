@@ -11,7 +11,9 @@
     e. npm install steam-totp
     f. npm install steam-tradeoffer-manager
     g. npm install raven
-	h. npm install steamid
+    h. npm install steamid
+    i. npm install colors
+    j. npm install jsonfile
 
 
 4. go to the setting folder
