@@ -1,0 +1,7 @@
+{
+"EnableDeveloperCode" : "False",
+"EnableDevStockManager" : "False",
+
+
+
+}
