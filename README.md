@@ -110,4 +110,7 @@ pause
 
 20. Run the Run Bot.bat to run the bot
 
+If you want to Try the Developer Options Out
+open the Developer options Readme in Developer Options Folder
+
 HAVE ANY PROBLEMS POST YOUR PROBLEM HERE ON THE GITHUB REPO OR USE OUR STEAM GROUP steamcommunity.com/groups/MarketWH
