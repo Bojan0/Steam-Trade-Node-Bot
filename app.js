@@ -35,7 +35,13 @@ const MetalPrices = require('.//settings/Prices/MEtalPrices.json');
 
 const path = stock;
 const SteamID = TradeOfferManager.SteamID;
-
+const client = new SteamUser();
+const community = new SteamCommunity();
+const manager = new TradeOfferManager ({
+	steam: client,
+	community: community,
+	language: 'en',
+});
 console.log("\x1b[8m SteamTrade Bot")
 console.log("\x1b[33m Current Version:\x1b[35m 2.0.0")
 console.log("\x1b[33mCreator:\x1b[35m http://Github.com/Lonster_Monster")
@@ -66,7 +72,7 @@ client.on('friendRelationship', (steamID, relationship) => {
         client.chatMessage(steamID, messages.WELCOME);
 	    client.chatMessage(steamID, messages.WELCOME2);
     }
-})});
+});
 
 
 client.on('webSession', (sessionid, cookies) => {
