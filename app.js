@@ -78,7 +78,6 @@ client.on('loggedOn', () => {
 
 
 client.on('friendRelationship', (steamID, relationship) => {
-client.on('friendRelationship', (steamID, relationship) => {
     if (relationship === 2) {
         client.addFriend(steamID);
         client.chatMessage(steamID, messages.WELCOME);
