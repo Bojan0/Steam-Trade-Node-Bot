@@ -17,7 +17,6 @@ const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
 const math = require('mathjs');
 const fs = require('fs');
-const winston = require('winston');
 const Colors = require('colors');
 const jsonfile = require('jsonfile');
 
@@ -44,22 +43,6 @@ console.log("\x1b[33mIssues with the Bot:\x1b[35m https://github.com/LonsterMons
 console.log("\x1b[33mIdeas for the Bot:\x1b[35m http://steamcommunity.com/groups/MarketWH/discussions/0/\x1b[0m")
 console.log(" ")
 console.log(" ")
-
- var logger = new (winston.Logger)({
-    transports: [
-      new (winston.transports.Console)(),
-      new (winston.transports.File)({ filename: './/Logs/logs.log' })
-    ]
-  });
-  
-logger.log('Winston loaded')
-const client = new SteamUser();
-const community = new SteamCommunity();
-const manager = new TradeOfferManager ({
-	steam: client,
-	community: community,
-	language: 'en',
-});
 
 const logOnOptions = {
 	accountName: config.username,
