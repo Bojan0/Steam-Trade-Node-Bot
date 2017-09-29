@@ -4,7 +4,7 @@ How to Enable DEVELOPER_CODE:
 
 1. Go to Config in Settings Folder and ad the Following Options to it
 Add a comma after the false for Chats the add
-"DevCode" : "False"
+"DevCode" : "True"
 
 2. Got to the Folder Named Developer Options:
 To Enable the Options just put True where there is a "false"
