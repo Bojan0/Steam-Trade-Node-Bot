@@ -5,11 +5,34 @@ Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced9
 } else {
     console.log ("\x1b[33m WARNING\x1b[37m: IssueTracking Disabled please enable issue tracking to get help faster when you are having problems.")
 }
+	const DevCodeCFG = require('.//Developer Options/DeveloperConfig.json');
+	const winston = require('winston');
 if (config.DevCode == "True"){
 	console.log('\x1b[33m WARNING\x1b[37m: DEVEOPER OPTIONS ENABLED, DEVELOPER OPTIONS IS FOR EXPIRAMENTAL USE ONLY AND SHOULD BE FOR DEVELOPERS ONLY')
-	const DevCodeCFG = require('.//Developer Options/Developer Config.json')
+	if (DevCodeCFG.Enable_Dev_Logs == "True"){
+		var Messagelogger = new (winston.Logger)({
+		transports: [
+		new (winston.transports.Console)(),
+		new (winston.transports.File)({ filename: './/Logs/Messagelogs.log' })
+		]
+		});
+		Messagelogger.log('info','Winston loaded')
+		var Tradelogger = new (winston.Logger)({
+		transports: [
+		new (winston.transports.Console)(),
+		new (winston.transports.File)({ filename: './/Logs/Tradelogs.log' })
+		]
+		});
+		Tradelogger.log('info','Winston loaded')
+		var infologger = new (winston.Logger)({
+		transports: [
+		new (winston.transports.Console)(),
+		new (winston.transports.File)({ filename: './/Logs/infologs.log' })
+		]
+		});
+		infologger.log('info','Winston loaded')
+	}
 }
-
 const SteamTotp = require('steam-totp');
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
@@ -34,13 +57,13 @@ const MetalPrices = require('.//settings/Prices/MEtalPrices.json');
 
 const path = stock;
 const SteamID = TradeOfferManager.SteamID;
-const client = new SteamUser();
-const community = new SteamCommunity();
-const manager = new TradeOfferManager ({
-	steam: client,
-	community: community,
-	language: 'en',
-});
+const d = new Date();
+const m = d.getMinutes()
+const s = d.getSeconds()
+const n = 1440
+const h = d.getHours()
+const timestamp = "[".green+h+":".cyan+m+":".cyan+s+"] ".green
+
 console.log("\x1b[8m SteamTrade Bot")
 console.log("\x1b[33m Current Version:\x1b[35m 2.0.0")
 console.log("\x1b[33mCreator:\x1b[35m http://Github.com/Lonster_Monster")
@@ -48,6 +71,13 @@ console.log("\x1b[33mIssues with the Bot:\x1b[35m https://github.com/LonsterMons
 console.log("\x1b[33mIdeas for the Bot:\x1b[35m http://steamcommunity.com/groups/MarketWH/discussions/0/\x1b[0m")
 console.log(" ")
 console.log(" ")
+const client = new SteamUser();
+const community = new SteamCommunity();
+const manager = new TradeOfferManager ({
+	steam: client,
+	community: community,
+	language: 'en',
+});
 
 const logOnOptions = {
 	accountName: config.username,
@@ -63,15 +93,23 @@ client.on('loggedOn', () => {
     client.gamesPlayed([Games.Game1,Games.Game2]);
 });
 
+setTimeout(function(){
+const logOnOptions = {
+	accountName: config.username,
+	password: config.password,
+	twoFactorCode: SteamTotp.generateAuthCode(config.sharedSecret)
+};
+}, n * 1000);
 
 
+client.on('friendRelationship', (steamID, relationship) => {
 client.on('friendRelationship', (steamID, relationship) => {
     if (relationship === 2) {
         client.addFriend(steamID);
         client.chatMessage(steamID, messages.WELCOME);
 	    client.chatMessage(steamID, messages.WELCOME2);
     }
-});
+})});
 
 
 client.on('webSession', (sessionid, cookies) => {
@@ -84,11 +122,6 @@ client.on('webSession', (sessionid, cookies) => {
 if (fs.readFileSync('.//settings/Stock/stock.json')){
 	console.log('File Read sync')
 }
-var d = new Date();
-var m = d.getMinutes()
-var s = d.getSeconds()
-var h = d.getHours()
-var timestamp = "[".green+h+":".cyan+m+":".cyan+s+"] ".green
 
 
 console.log(timestamp+"Time Set")
@@ -320,7 +353,7 @@ function processOffer(offer) {
 				currentstock = stock[item].instock;
 				StockLimit = stock[item].stocklimit;
 				fs.readFileSync('.//settings/Stock/stock.json')
-				console.log(timestamp+"The " +item+" - stock number: " +currentstock+ " / " +StockLimit+ ".")
+				console.log(timestamp+"Thier " +item+" - stock number: " +currentstock+ " / " +StockLimit+ ".")
 				if (currentstock < StockLimit){
 					if(Prices[item]) {
 					theirValue += Prices[item].buy;
