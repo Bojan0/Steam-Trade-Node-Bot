@@ -14,6 +14,7 @@
     h. npm install steamid
     i. npm install colors
     j. npm install jsonfile
+    k. npm install steamcommunity
 
 
 4. go to the setting folder
