@@ -8,7 +8,6 @@ Raven.config('https://0a6d1f872b464102ad9b86e4d12113b7:37f5be982d9e476c9e681ced9
 if (config.DevCode == "True"){
 	console.log('\x1b[33m WARNING\x1b[37m: DEVEOPER OPTIONS ENABLED, DEVELOPER OPTIONS IS FOR EXPIRAMENTAL USE ONLY AND SHOULD BE FOR DEVELOPERS ONLY')
 	const DevCodeCFG = require('.//Developer Options/Developer Config.json')
-	const Logs = require('.//Logs/logs.log');
 }
 
 const SteamTotp = require('steam-totp');
