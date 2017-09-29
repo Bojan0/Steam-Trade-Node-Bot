@@ -358,7 +358,7 @@ console.log(timestamp+"Their value: "+theirValue);
 
 	
 	if (ourValue <= theirValue) {
-		if (DevCodeCFG.Enable_Developer_Code == "True"){
+		if (config.DevCode == "True"){
 			if (DevCodeCFG.Enable_Dev_Stock_Manager== "True"){
 				for (var i in ourItems) {
 					var item = ourItems[i].market_name;
