@@ -1,4 +1,4 @@
-# Steam-Node-Bot v2.1
+# Steam-Node-Bot v2.4
 
 1. Unpack the files to your Desktop or where ever you want it
 
@@ -15,6 +15,7 @@
     i. npm install colors
     j. npm install jsonfile
     k. npm install steamcommunity
+    
 
 
 4. go to the setting folder
