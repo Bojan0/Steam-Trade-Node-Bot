@@ -1,7 +1,0 @@
-{
-"EnableDeveloperCode" : "False",
-"EnableDevStockManager" : "False",
-
-
-
-}
